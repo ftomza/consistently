@@ -8,7 +8,7 @@
 Plugin for [GORM](https://github.com/jinzhu/gorm) checking read data before updating for consistency
 
 ### Register GORM Callbacks
-Validations uses [GORM](https://github.com/jinzhu/gorm) callbacks to handle *gorm:update* and *gorm:create*, so you will need to register callbacks first:
+Consistently uses [GORM](https://github.com/jinzhu/gorm) callbacks to handle *gorm:update* and *gorm:create*, so you will need to register callbacks first:
 
 ```go
 import (
