@@ -31,6 +31,6 @@ notifications:
 # failing test, we want to see both. Configure golangci-lint with a
 # .golangci.yml file at the top level of your repo.
 script:
-- echo "Test and track coverage" ; $HOME/gopath/bin/goveralls -package "." -service=travis-ci -repotoken $COVERALLS_TOKEN
 - go build
 - go test
+- echo "Test and track coverage" ; $HOME/gopath/bin/goveralls -package "." -service=travis-ci -repotoken $COVERALLS_TOKEN
