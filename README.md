@@ -1,4 +1,9 @@
 # Consistently
+
+[![GoDoc](https://godoc.org/github.com/ftomza/consistently?status.svg)](https://godoc.org/github.com/ftomza/consistently)
+[![Go Report Card](https://goreportcard.com/badge/github.com/ftomza/consistently)](https://goreportcard.com/report/github.com/ftomza/consistently)
+[![Build Status](https://travis-ci.org/go-gormigrate/gormigrate.svg?branch=master)](https://travis-ci.org/go-gormigrate/gormigrate)
+
 Plugin for [GORM](https://github.com/jinzhu/gorm) checking read data before updating for consistency
 
 ### Register GORM Callbacks
@@ -46,6 +51,18 @@ func main() {
   db.Update(&user)
   
   fmt.printf("Version: %s\n", user.Version)
+}
+```
+
+## Custom field for save version
+
+If it is not possible to store version data in the *version* field by default, use the *`consistently:"version"`* tag to mark the field as a data version.
+
+```go
+type User struct {
+	gorm.Model
+	Name string
+	MyVersion string `consistently:"version"`
 }
 ```
 
