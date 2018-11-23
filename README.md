@@ -2,7 +2,8 @@
 
 [![GoDoc](https://godoc.org/github.com/ftomza/consistently?status.svg)](https://godoc.org/github.com/ftomza/consistently)
 [![Go Report Card](https://goreportcard.com/badge/github.com/ftomza/consistently)](https://goreportcard.com/report/github.com/ftomza/consistently)
-[![Build Status](https://travis-ci.org/go-gormigrate/gormigrate.svg?branch=master)](https://travis-ci.org/go-gormigrate/gormigrate)
+[![Build Status](https://travis-ci.org/ftomza/consistently.svg?branch=master)](https://travis-ci.org/ftomza/consistently)
+[![Coverage Status](https://coveralls.io/repos/github/ftomza/consistently/badge.svg)](https://coveralls.io/github/ftomza/consistently)
 
 Plugin for [GORM](https://github.com/jinzhu/gorm) checking read data before updating for consistency
 
