@@ -34,9 +34,11 @@ func TestGoConsistently(t *testing.T) {
 		t.Errorf("Must contain a version of the data")
 	}
 
+	user.Name = "gopa"
+
 	beforeUpdateVesrion := user.Version
 
-	errs := db.Model(&user).Update(&user).GetErrors()
+	errs := db.Save(&user).GetErrors()
 
 	errFound := false
 	for _, v := range errs {
@@ -50,6 +52,10 @@ func TestGoConsistently(t *testing.T) {
 		t.Errorf("Must not contain ErrVersionNotValid")
 	}
 
+	if user.Name != "gopa" {
+		t.Errorf("Must equal user.Name")
+	}
+
 	userCheck := User{}
 
 	db.First(&userCheck, user.ID)
@@ -60,7 +66,7 @@ func TestGoConsistently(t *testing.T) {
 
 	user.Version = "bad"
 
-	errs = db.Model(&user).Update(&user).GetErrors()
+	errs = db.Save(&user).GetErrors()
 
 	errFound = false
 	for _, v := range errs {
@@ -163,7 +169,7 @@ func TestGoConsistentlyAsync(t *testing.T) {
 	}
 
 	go handler(false, 2)
-	go handler(true, 3)
+	go handler(true, 4)
 
 	wg.Wait()
 }

@@ -1,6 +1,8 @@
 package consistently
 
 import (
+	"reflect"
+
 	"github.com/jinzhu/gorm"
 )
 
@@ -32,9 +34,12 @@ func callbackConsistently(scope *gorm.Scope) {
 		saveVersion := field.Field.String()
 
 		if saveVersion != "" {
-			currentValue := scope.New(scope.Value)
 
-			scope.DB().First(currentValue.Value)
+			val := reflect.New(scope.IndirectValue().Type())
+
+			currentValue := scope.New(val.Interface())
+
+			scope.DB().First(currentValue.Value, scope.PrimaryKeyValue())
 
 			if scope.HasError() {
 				return
