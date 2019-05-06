@@ -1,10 +1,11 @@
 package consistently_test
 
 import (
-	"consistently"
 	"sync"
 	"testing"
 	"time"
+
+	"github.com/ftomza/consistently"
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/mattn/go-sqlite3"
