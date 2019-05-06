@@ -1,4 +1,4 @@
-module consistently
+module github.com/ftomza/consistently
 
 require (
 	cloud.google.com/go v0.33.1 // indirect
